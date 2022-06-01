@@ -38,7 +38,7 @@ public class Calculator {
             char operation = Character.toLowerCase(input.next().charAt(0));
             // На английской и русской раскладке C одинаково выглядит, но это разные буквы.
             //Добавлю условие на обе раскладки. Count сбрасываем, чтобы ввести операнд после.
-            if (operation == 'c' || operation == 'с') {
+            if (operation == 'c' || operation == 'c') {
                 //Логирование
                 LOG.info("Пользователь выбрал сброс данных");
                 count = 0;
@@ -59,7 +59,7 @@ public class Calculator {
         }
     }
 
-    private void calculate(int a, int b, char operation) {
+    public int calculate(int a, int b, char operation) {
         switch (operation) {
             case '+' -> result = a + b;
             case '-' -> result = a - b;
@@ -69,11 +69,12 @@ public class Calculator {
                 //если попадаем сюда, первый операнд нужно будет ввести снова. Для этого сбрасываем счетчик.
                 //Логирование
                 LOG.warn("Неизвестная операция");
-                System.out.println("Unknown operation. Allowed operations with \"+\", \"-\", \"*\", \"/\".");
+                System.out.println("Неизвестная операция, недопустимый символ.");
                 count = 0;
             }
         }
         System.out.println(result);
+        return result;
     }
 }
 
